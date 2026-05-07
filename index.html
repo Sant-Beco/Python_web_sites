@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Viaje con Python - Documentación de Aprendizaje</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Merriweather:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0e14;
+            --bg-secondary: #151b23;
+            --bg-code: #1a1f29;
+            --accent-python: #ffd43b;
+            --accent-blue: #4a9eff;
+            --accent-green: #7ec699;
+            --text-primary: #e6e8eb;
+            --text-secondary: #9da5b4;
+            --border: #2d3748;
+            --shadow: rgba(0, 0, 0, 0.5);
+        }
+ 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+ 
+        body {
+            font-family: 'Merriweather', serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+ 
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.03;
+            background-image: 
+                linear-gradient(90deg, var(--accent-python) 1px, transparent 1px),
+                linear-gradient(0deg, var(--accent-python) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridScroll 20s linear infinite;
+        }
+ 
+        @keyframes gridScroll {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+ 
+        /* Header */
+        header {
+            background: var(--bg-secondary);
+            border-bottom: 2px solid var(--accent-python);
+            padding: 2rem 2rem 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            animation: slideDown 0.6s ease-out;
+        }
+ 
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+ 
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+ 
+        h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--accent-python);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+ 
+        .subtitle {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+ 
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+ 
+        /* Navigation */
+        nav {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+ 
+        nav a {
+            font-family: 'JetBrains Mono', monospace;
+            text-decoration: none;
+            color: var(--text-secondary);
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+ 
+        nav a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--accent-python);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+ 
+        nav a:hover {
+            color: var(--bg-primary);
+            border-color: var(--accent-python);
+        }
+ 
+        nav a:hover::before {
+            left: 0;
+        }
+ 
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+ 
+        .section {
+            margin-bottom: 4rem;
+            animation: fadeInUp 1s ease-out both;
+        }
+ 
+        .section:nth-child(1) { animation-delay: 0.8s; }
+        .section:nth-child(2) { animation-delay: 1s; }
+        .section:nth-child(3) { animation-delay: 1.2s; }
+ 
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border);
+        }
+ 
+        .section-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent-python);
+            opacity: 0.3;
+            line-height: 1;
+        }
+ 
+        h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+ 
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+ 
+        .card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+ 
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: var(--accent-python);
+            transition: height 0.3s ease;
+        }
+ 
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-python);
+        }
+ 
+        .card:hover::before {
+            height: 100%;
+        }
+ 
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--accent-blue);
+            font-weight: 700;
+        }
+ 
+        .card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+ 
+        /* Code Block */
+        .code-container {
+            background: var(--bg-code);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 2rem 0;
+            box-shadow: 0 10px 40px var(--shadow);
+        }
+ 
+        .code-header {
+            background: #0d1117;
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+ 
+        .code-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+ 
+        .code-dot.red { background: #ff5f56; }
+        .code-dot.yellow { background: #ffbd2e; }
+        .code-dot.green { background: #27c93f; }
+ 
+        .code-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-left: auto;
+        }
+ 
+        pre {
+            padding: 2rem;
+            overflow-x: auto;
+            margin: 0;
+        }
+ 
+        code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: var(--text-primary);
+        }
+ 
+        .keyword { color: #ff79c6; }
+        .function { color: #50fa7b; }
+        .string { color: #f1fa8c; }
+        .comment { color: #6272a4; }
+ 
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+ 
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--accent-python), var(--accent-blue));
+        }
+ 
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-left: 2rem;
+        }
+ 
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -3.5rem;
+            top: 0.5rem;
+            width: 1rem;
+            height: 1rem;
+            background: var(--accent-python);
+            border: 3px solid var(--bg-primary);
+            border-radius: 50%;
+            box-shadow: 0 0 0 3px var(--bg-secondary);
+        }
+ 
+        .timeline-year {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--accent-python);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+ 
+        .timeline-content h3 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+ 
+        .timeline-content p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+ 
+        /* Tech Stack */
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+ 
+        .tech-item {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+ 
+        .tech-category {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent-green);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+ 
+        .tech-name {
+            font-weight: 700;
+            color: var(--text-primary);
+            font-size: 1.1rem;
+        }
+ 
+        .tech-version {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+ 
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            border-top: 2px solid var(--accent-python);
+            padding: 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+ 
+        footer p {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+ 
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            .section-number {
+                font-size: 2rem;
+            }
+            h2 { font-size: 1.5rem; }
+        }
+ 
+        /* Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+ 
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+ 
+    <header>
+        <div class="header-content">
+            <h1>Mi Viaje con Python</h1>
+            <p class="subtitle">Documentación sensibilizada de aprendizaje basada en CS50</p>
+            <nav>
+                <a href="#que-es-python">¿Qué es Python?</a>
+                <a href="#historia">Historia</a>
+                <a href="#caracteristicas">Características</a>
+                <a href="#stack">Mi Stack</a>
+                <a href="#primeros-pasos">Primeros Pasos</a>
+            </nav>
+        </div>
+    </header>
+ 
+    <main>
+        <!-- ¿Qué es Python? -->
+        <section id="que-es-python" class="section">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <h2>¿Qué es Python?</h2>
+            </div>
+            
+            <div class="content-grid">
+                <div class="card">
+                    <h3>Lenguaje de Alto Nivel</h3>
+                    <p>Python es un lenguaje de programación interpretado, de alto nivel y de propósito general. Su filosofía de diseño enfatiza la legibilidad del código con el uso de espacios en blanco significativos.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Multipropósito</h3>
+                    <p>Desde desarrollo web hasta inteligencia artificial, análisis de datos, automatización, ciencia de datos y más. Python es versátil y poderoso.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Sintaxis Clara</h3>
+                    <p>Python se lee casi como inglés (o español). Su sintaxis limpia permite que los principiantes aprendan rápidamente mientras mantiene la potencia para proyectos complejos.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Comunidad Global</h3>
+                    <p>Una de las comunidades de desarrolladores más grandes del mundo. Miles de librerías, frameworks y recursos de aprendizaje disponibles.</p>
+                </div>
+            </div>
+ 
+            <div class="code-container">
+                <div class="code-header">
+                    <span class="code-dot red"></span>
+                    <span class="code-dot yellow"></span>
+                    <span class="code-dot green"></span>
+                    <span class="code-title">hello_world.py</span>
+                </div>
+                <pre><code><span class="comment"># Mi primer programa en Python</span>
+<span class="comment"># Siguiendo el curso CS50's Introduction to Programming with Python</span>
+ 
+<span class="keyword">def</span> <span class="function">main</span>():
+    nombre = <span class="function">input</span>(<span class="string">"¿Cómo te llamas? "</span>)
+    <span class="function">print</span>(<span class="string">f"Hola, {nombre}! Bienvenido a Python 🐍"</span>)
+ 
+<span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:
+    <span class="function">main</span>()</code></pre>
+            </div>
+        </section>
+ 
+        <!-- Historia -->
+        <section id="historia" class="section reveal">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2>Historia y Orígenes</h2>
+            </div>
+ 
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">1989</div>
+                    <div class="timeline-content">
+                        <h3>Los Inicios</h3>
+                        <p>Guido van Rossum comienza a trabajar en Python durante las vacaciones de Navidad en el CWI (Centrum Wiskunde & Informatica) en Amsterdam, Países Bajos.</p>
+                    </div>
+                </div>
+ 
+                <div class="timeline-item">
+                    <div class="timeline-year">1991</div>
+                    <div class="timeline-content">
+                        <h3>Primera Versión Pública</h3>
+                        <p>Python 0.9.0 es lanzado. Ya incluía clases con herencia, manejo de excepciones, funciones y los tipos de datos principales.</p>
+                    </div>
+                </div>
+ 
+                <div class="timeline-item">
+                    <div class="timeline-year">2000</div>
+                    <div class="timeline-content">
+                        <h3>Python 2.0</h3>
+                        <p>Introducción de list comprehensions, garbage collection y soporte para Unicode. Comienza la era moderna de Python.</p>
+                    </div>
+                </div>
+ 
+                <div class="timeline-item">
+                    <div class="timeline-year">2008</div>
+                    <div class="timeline-content">
+                        <h3>Python 3.0</h3>
+                        <p>Lanzamiento de Python 3, una revisión mayor del lenguaje. No es completamente compatible con Python 2, pero introduce mejoras fundamentales.</p>
+                    </div>
+                </div>
+ 
+                <div class="timeline-item">
+                    <div class="timeline-year">2020</div>
+                    <div class="timeline-content">
+                        <h3>Fin de Python 2</h3>
+                        <p>Python 2.7 alcanza su fin de vida (EOL). La comunidad se consolida completamente en Python 3.</p>
+                    </div>
+                </div>
+ 
+                <div class="timeline-item">
+                    <div class="timeline-year">2026</div>
+                    <div class="timeline-content">
+                        <h3>Mi Viaje Comienza</h3>
+                        <p>Inicio mi aprendizaje estructurado de Python con CS50, documentando cada paso, desde funciones y variables hasta programación orientada a objetos.</p>
+                    </div>
+                </div>
+            </div>
+ 
+            <div class="card" style="margin-top: 2rem;">
+                <h3>🐍 ¿Por qué "Python"?</h3>
+                <p>Guido van Rossum era fan del grupo de comedia británico "Monty Python's Flying Circus". Cuando necesitó un nombre para su nuevo lenguaje, quería algo corto, único y ligeramente misterioso, así que eligió "Python". No tiene nada que ver con la serpiente, aunque el logo sí las incluye.</p>
+            </div>
+        </section>
+ 
+        <!-- Características Principales -->
+        <section id="caracteristicas" class="section reveal">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h2>Características Principales</h2>
+            </div>
+ 
+            <div class="content-grid">
+                <div class="card">
+                    <h3>🔤 Tipado Dinámico</h3>
+                    <p>No necesitas declarar tipos de variables. Python infiere el tipo automáticamente, lo que hace el código más conciso y flexible.</p>
+                </div>
+ 
+                <div class="card">
+                    <h3>🎯 Interpretado</h3>
+                    <p>No requiere compilación. El código se ejecuta directamente línea por línea, facilitando el testing y debugging.</p>
+                </div>
+ 
+                <div class="card">
+                    <h3>📦 Baterías Incluidas</h3>
+                    <p>Python viene con una biblioteca estándar extensa que cubre todo desde matemáticas hasta networking y procesamiento de archivos.</p>
+                </div>
+ 
+                <div class="card">
+                    <h3>🌐 Multiplataforma</h3>
+                    <p>Funciona en Windows, macOS, Linux y más. Escribe una vez, ejecuta en cualquier lugar.</p>
+                </div>
+ 
+                <div class="card">
+                    <h3>🧩 Orientado a Objetos</h3>
+                    <p>Soporta programación orientada a objetos, pero también paradigmas procedurales y funcionales.</p>
+                </div>
+ 
+                <div class="card">
+                    <h3>🔓 Open Source</h3>
+                    <p>Completamente gratuito y de código abierto. Una comunidad global contribuye constantemente a su mejora.</p>
+                </div>
+            </div>
+        </section>
+ 
+        <!-- Mi Stack Tecnológico -->
+        <section id="stack" class="section reveal">
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <h2>Mi Stack Tecnológico Definitivo</h2>
+            </div>
+ 
+            <div class="tech-stack">
+                <div class="tech-item">
+                    <span class="tech-category">Sistema Operativo</span>
+                    <span class="tech-name">Ubuntu</span>
+                    <span class="tech-version">22.04 LTS (WSL2 → Dual boot)</span>
+                </div>
+ 
+                <div class="tech-item">
+                    <span class="tech-category">Lenguaje</span>
+                    <span class="tech-name">Python</span>
+                    <span class="tech-version">3.11+</span>
+                </div>
+ 
+                <div class="tech-item">
+                    <span class="tech-category">Backend</span>
+                    <span class="tech-name">FastAPI + Uvicorn</span>
+                    <span class="tech-version">Framework web moderno</span>
+                </div>
+ 
+                <div class="tech-item">
+                    <span class="tech-category">Base de Datos</span>
+                    <span class="tech-name">PostgreSQL</span>
+                    <span class="tech-version">15+</span>
+                </div>
+ 
+                <div class="tech-item">
+                    <span class="tech-category">ORM</span>
+                    <span class="tech-name">SQLAlchemy</span>
+                    <span class="tech-version">2.0 + Alembic</span>
+                </div>
+ 
+                <div class="tech-item">
+                    <span class="tech-category">Dependencias</span>
+                    <span class="tech-name">Poetry</span>
+                    <span class="tech-version">Gestión moderna</span>
+                </div>
+ 
+                <div class="tech-item">
+                    <span class="tech-category">Editor</span>
+                    <span class="tech-name">Cursor</span>
+                    <span class="tech-version">AI-powered IDE</span>
+                </div>
+ 
+                <div class="tech-item">
+                    <span class="tech-category">Testing</span>
+                    <span class="tech-name">pytest + coverage</span>
+                    <span class="tech-version">Testing framework</span>
+                </div>
+ 
+                <div class="tech-item">
+                    <span class="tech-category">Control de Versiones</span>
+                    <span class="tech-name">Git + GitHub</span>
+                    <span class="tech-version">+ GitHub Actions</span>
+                </div>
+ 
+                <div class="tech-item">
+                    <span class="tech-category">Containerización</span>
+                    <span class="tech-name">Docker</span>
+                    <span class="tech-version">+ Docker Compose</span>
+                </div>
+ 
+                <div class="tech-item">
+                    <span class="tech-category">IA Asistente</span>
+                    <span class="tech-name">Claude Pro</span>
+                    <span class="tech-version">Diseño y arquitectura</span>
+                </div>
+ 
+                <div class="tech-item">
+                    <span class="tech-category">Deployment</span>
+                    <span class="tech-name">Render / Railway</span>
+                    <span class="tech-version">DigitalOcean / Netlify</span>
+                </div>
+            </div>
+        </section>
+ 
+        <!-- Primeros Pasos -->
+        <section id="primeros-pasos" class="section reveal">
+            <div class="section-header">
+                <span class="section-number">05</span>
+                <h2>Primeros Pasos con Python</h2>
+            </div>
+ 
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3>La Filosofía de Python: El Zen de Python</h3>
+                <p style="margin-bottom: 1rem;">Python tiene un conjunto de principios guía para escribir código. Puedes verlos ejecutando <code style="background: var(--bg-code); padding: 0.2rem 0.5rem; border-radius: 3px; font-family: 'JetBrains Mono', monospace;">import this</code> en tu intérprete:</p>
+            </div>
+ 
+            <div class="code-container">
+                <div class="code-header">
+                    <span class="code-dot red"></span>
+                    <span class="code-dot yellow"></span>
+                    <span class="code-dot green"></span>
+                    <span class="code-title">zen_of_python.py</span>
+                </div>
+                <pre><code><span class="keyword">import</span> this
+ 
+<span class="comment"># Beautiful is better than ugly.</span>
+<span class="comment"># Explicit is better than implicit.</span>
+<span class="comment"># Simple is better than complex.</span>
+<span class="comment"># Complex is better than complicated.</span>
+<span class="comment"># Readability counts.</span></code></pre>
+            </div>
+ 
+            <div class="content-grid">
+                <div class="card">
+                    <h3>📚 Recursos de Aprendizaje</h3>
+                    <p><strong>CS50's Introduction to Programming with Python</strong> - Mi curso principal<br>
+                    <strong>Python.org</strong> - Documentación oficial<br>
+                    <strong>Real Python</strong> - Tutoriales avanzados<br>
+                    <strong>PyPI</strong> - Repositorio de paquetes</p>
+                </div>
+ 
+                <div class="card">
+                    <h3>🎯 Mi Hoja de Ruta</h3>
+                    <p><strong>Semanas 0-2:</strong> Fundamentos (funciones, variables, loops)<br>
+                    <strong>Semanas 3-5:</strong> Excepciones, librerías, testing<br>
+                    <strong>Semanas 6-8:</strong> File I/O, RegEx, OOP<br>
+                    <strong>Semana 9+:</strong> Proyecto final y especialización</p>
+                </div>
+            </div>
+        </section>
+    </main>
+ 
+    <footer>
+        <p>🐍 Mi Viaje con Python | Basado en CS50's Introduction to Programming with Python | 2026</p>
+        <p style="margin-top: 0.5rem;">Creado con Python, FastAPI y mucha dedicación</p>
+    </footer>
+ 
+    <script>
+        // Scroll reveal animation
+        const reveals = document.querySelectorAll('.reveal');
+        
+        function checkScroll() {
+            reveals.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        }
+ 
+        window.addEventListener('scroll', checkScroll);
+        checkScroll(); // Check on load
+ 
+        // Smooth scroll for navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    </script>
+</body>
+</html>
