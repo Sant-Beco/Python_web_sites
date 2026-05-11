@@ -6,12 +6,13 @@
     <title>Semana 0: Functions, Variables | Mi Viaje con Python</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="stiles.css">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Merriweather:wght@300;400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/styles.css">
 </head>
 <body>
     <div class="bg-animation"></div>
- 
+
     <header>
         <div class="header-content">
             <div class="header-title">
@@ -27,15 +28,15 @@
             </nav>
         </div>
     </header>
- 
+
     <main>
-        <div class="page-header fade-in">
+        <div class="page-header">
             <h1 class="page-title">Semana 0</h1>
             <p class="page-subtitle">Functions, Variables - Los Fundamentos de Python</p>
         </div>
- 
+
         <!-- Introducción -->
-        <section class="section fade-in">
+        <section class="section">
             <div class="section-header">
                 <span class="section-icon">📚</span>
                 <h2>Introducción</h2>
@@ -52,19 +53,19 @@
                 </ul>
             </div>
         </section>
- 
+
         <!-- Funciones -->
-        <section class="section fade-in">
+        <section class="section">
             <div class="section-header">
                 <span class="section-icon">⚙️</span>
                 <h2>Funciones (Functions)</h2>
             </div>
- 
+
             <div class="concept-box">
                 <h3>¿Qué es una función?</h3>
                 <p>Una función es un bloque de código reutilizable que realiza una tarea específica. En Python, las funciones nos permiten organizar nuestro código y evitar repeticiones.</p>
             </div>
- 
+
             <div class="code-container">
                 <div class="code-header">
                     <span class="code-dot red"></span>
@@ -75,18 +76,18 @@
                 <pre><code><span class="comment"># Función básica sin parámetros</span>
 <span class="keyword">def</span> <span class="function">hello</span>():
     <span class="function">print</span>(<span class="string">"Hola, mundo!"</span>)
- 
+
 <span class="comment"># Llamar a la función</span>
 <span class="function">hello</span>()
- 
+
 <span class="comment"># Función con parámetros</span>
 <span class="keyword">def</span> <span class="function">saludar</span>(nombre):
     <span class="function">print</span>(<span class="string">f"Hola, {nombre}!"</span>)
- 
+
 <span class="function">saludar</span>(<span class="string">"Carlos"</span>)
 <span class="function">saludar</span>(<span class="string">"María"</span>)</code></pre>
             </div>
- 
+
             <div class="example-box">
                 <h3>📝 Ejemplo Práctico: Mi Primera Función</h3>
                 <div class="code-container" style="margin-top: 1rem;">
@@ -100,29 +101,29 @@
     <span class="comment"># La función main() es el punto de entrada de nuestro programa</span>
     nombre = <span class="function">input</span>(<span class="string">"¿Cuál es tu nombre? "</span>)
     <span class="function">saludar</span>(nombre)
- 
+
 <span class="keyword">def</span> <span class="function">saludar</span>(nombre):
     <span class="function">print</span>(<span class="string">f"Hola, {nombre}!"</span>)
- 
+
 <span class="comment"># Ejecutar la función principal</span>
 <span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:
     <span class="function">main</span>()</code></pre>
                 </div>
             </div>
         </section>
- 
+
         <!-- Variables -->
-        <section class="section fade-in">
+        <section class="section">
             <div class="section-header">
                 <span class="section-icon">📦</span>
                 <h2>Variables y Tipos de Datos</h2>
             </div>
- 
+
             <div class="concept-box">
                 <h3>Variables en Python</h3>
                 <p>Las variables son contenedores para almacenar valores. En Python, no necesitamos declarar el tipo de variable - Python lo infiere automáticamente (tipado dinámico).</p>
             </div>
- 
+
             <div class="content-grid">
                 <div class="card">
                     <h3>🔤 Strings (str)</h3>
@@ -139,7 +140,7 @@ mensaje = <span class="string">"""Texto
 multilínea"""</span></code></pre>
                     </div>
                 </div>
- 
+
                 <div class="card">
                     <h3>🔢 Integers (int)</h3>
                     <p>Números enteros sin decimales.</p>
@@ -154,7 +155,7 @@ año = <span class="number">2026</span>
 negativo = <span class="number">-42</span></code></pre>
                     </div>
                 </div>
- 
+
                 <div class="card">
                     <h3>💰 Floats (float)</h3>
                     <p>Números con decimales.</p>
@@ -170,7 +171,7 @@ temperatura = <span class="number">-5.5</span></code></pre>
                     </div>
                 </div>
             </div>
- 
+
             <div class="code-container">
                 <div class="code-header">
                     <span class="code-dot red"></span>
@@ -179,42 +180,42 @@ temperatura = <span class="number">-5.5</span></code></pre>
                     <span class="code-title">tipos_datos.py</span>
                 </div>
                 <pre><code><span class="comment"># Trabajando con diferentes tipos de datos</span>
- 
+
 <span class="comment"># Strings</span>
 nombre = <span class="string">"Ana"</span>
 apellido = <span class="string">"García"</span>
 nombre_completo = nombre + <span class="string">" "</span> + apellido  <span class="comment"># Concatenación</span>
- 
+
 <span class="comment"># Integers</span>
 edad = <span class="number">28</span>
 año_nacimiento = <span class="number">2026</span> - edad
- 
+
 <span class="comment"># Floats</span>
 altura = <span class="number">1.75</span>
 peso = <span class="number">70.5</span>
 imc = peso / (altura ** <span class="number">2</span>)  <span class="comment"># ** es exponenciación</span>
- 
+
 <span class="comment"># Conversión de tipos</span>
 edad_str = <span class="function">str</span>(edad)  <span class="comment"># 28 → "28"</span>
 numero = <span class="function">int</span>(<span class="string">"42"</span>)  <span class="comment"># "42" → 42</span>
 decimal = <span class="function">float</span>(<span class="string">"3.14"</span>)  <span class="comment"># "3.14" → 3.14</span>
- 
+
 <span class="function">print</span>(<span class="string">f"{nombre_completo} tiene {edad} años"</span>)</code></pre>
             </div>
         </section>
- 
+
         <!-- F-Strings -->
-        <section class="section fade-in">
+        <section class="section">
             <div class="section-header">
                 <span class="section-icon">✨</span>
                 <h2>Formateo de Strings (f-strings)</h2>
             </div>
- 
+
             <div class="concept-box">
                 <h3>F-Strings: La forma moderna de formatear</h3>
                 <p>Los f-strings (formatted string literals) son la forma más legible y eficiente de formatear strings en Python 3.6+. Se crean anteponiendo una 'f' antes de las comillas.</p>
             </div>
- 
+
             <div class="code-container">
                 <div class="code-header">
                     <span class="code-dot red"></span>
@@ -226,15 +227,15 @@ decimal = <span class="function">float</span>(<span class="string">"3.14"</span>
 nombre = <span class="string">"Carlos"</span>
 edad = <span class="number">25</span>
 <span class="function">print</span>(<span class="string">"Mi nombre es "</span> + nombre + <span class="string">" y tengo "</span> + <span class="function">str</span>(edad) + <span class="string">" años"</span>)
- 
+
 <span class="comment"># Con f-strings (recomendado) ✅</span>
 <span class="function">print</span>(<span class="string">f"Mi nombre es {nombre} y tengo {edad} años"</span>)
- 
+
 <span class="comment"># F-strings con expresiones</span>
 precio = <span class="number">19.99</span>
 cantidad = <span class="number">3</span>
 <span class="function">print</span>(<span class="string">f"Total: ${precio * cantidad:.2f}"</span>)  <span class="comment"># Total: $59.97</span>
- 
+
 <span class="comment"># F-strings multilínea</span>
 mensaje = <span class="string">f"""
 Hola {nombre},
@@ -244,14 +245,14 @@ El próximo año tendrás {edad + 1} años.
 <span class="function">print</span>(mensaje)</code></pre>
             </div>
         </section>
- 
+
         <!-- Funciones Built-in -->
-        <section class="section fade-in">
+        <section class="section">
             <div class="section-header">
                 <span class="section-icon">🔧</span>
                 <h2>Funciones Built-in Esenciales</h2>
             </div>
- 
+
             <div class="content-grid">
                 <div class="card">
                     <h3>print()</h3>
@@ -268,7 +269,7 @@ El próximo año tendrás {edad + 1} años.
 <span class="function">print</span>(<span class="string">"Mundo"</span>)</code></pre>
                     </div>
                 </div>
- 
+
                 <div class="card">
                     <h3>input()</h3>
                     <p>Captura entrada del usuario.</p>
@@ -283,7 +284,7 @@ edad = <span class="function">int</span>(<span class="function">input</span>(<sp
 <span class="function">print</span>(<span class="string">f"Hola, {nombre}"</span>)</code></pre>
                     </div>
                 </div>
- 
+
                 <div class="card">
                     <h3>len()</h3>
                     <p>Devuelve la longitud de un objeto.</p>
@@ -301,19 +302,19 @@ nombre = <span class="function">input</span>(<span class="string">"Nombre: "</sp
                 </div>
             </div>
         </section>
- 
+
         <!-- Métodos de Strings -->
-        <section class="section fade-in">
+        <section class="section">
             <div class="section-header">
                 <span class="section-icon">🔧</span>
                 <h2>Métodos de Strings</h2>
             </div>
- 
+
             <div class="concept-box">
                 <h3>Métodos útiles para manipular strings</h3>
                 <p>Python proporciona muchos métodos integrados para trabajar con strings. Estos nos permiten modificar, analizar y transformar texto fácilmente.</p>
             </div>
- 
+
             <div class="code-container">
                 <div class="code-header">
                     <span class="code-dot red"></span>
@@ -323,29 +324,29 @@ nombre = <span class="function">input</span>(<span class="string">"Nombre: "</sp
                 </div>
                 <pre><code><span class="comment"># Métodos de transformación</span>
 texto = <span class="string">"  Hello, World!  "</span>
- 
+
 <span class="function">print</span>(texto.strip())      <span class="comment"># Elimina espacios al inicio y final</span>
 <span class="function">print</span>(texto.lower())      <span class="comment"># Convierte a minúsculas</span>
 <span class="function">print</span>(texto.upper())      <span class="comment"># Convierte a mayúsculas</span>
 <span class="function">print</span>(texto.capitalize()) <span class="comment"># Primera letra mayúscula</span>
 <span class="function">print</span>(texto.title())      <span class="comment"># Cada palabra con mayúscula inicial</span>
- 
+
 <span class="comment"># Métodos de búsqueda</span>
 frase = <span class="string">"Python es genial"</span>
 <span class="function">print</span>(frase.startswith(<span class="string">"Python"</span>))  <span class="comment"># True</span>
 <span class="function">print</span>(frase.endswith(<span class="string">"genial"</span>))    <span class="comment"># True</span>
 <span class="function">print</span>(frase.find(<span class="string">"es"</span>))            <span class="comment"># 7 (índice donde empieza)</span>
 <span class="function">print</span>(frase.replace(<span class="string">"genial"</span>, <span class="string">"increíble"</span>))
- 
+
 <span class="comment"># Dividir y unir strings</span>
 palabras = <span class="string">"Python,Java,JavaScript"</span>
 lista = palabras.split(<span class="string">","</span>)  <span class="comment"># ['Python', 'Java', 'JavaScript']</span>
 <span class="function">print</span>(lista)
- 
+
 unido = <span class="string">" - "</span>.join(lista)  <span class="comment"># 'Python - Java - JavaScript'</span>
 <span class="function">print</span>(unido)</code></pre>
             </div>
- 
+
             <div class="example-box">
                 <h3>📝 Ejemplo: Limpieza de entrada del usuario</h3>
                 <div class="code-container" style="margin-top: 1rem;">
@@ -357,22 +358,22 @@ unido = <span class="string">" - "</span>.join(lista)  <span class="comment"># '
                     </div>
                     <pre><code><span class="comment"># Limpiar y formatear nombre del usuario</span>
 nombre = <span class="function">input</span>(<span class="string">"¿Cuál es tu nombre? "</span>)
- 
+
 <span class="comment"># Eliminar espacios extras y capitalizar correctamente</span>
 nombre = nombre.strip().title()
- 
+
 <span class="function">print</span>(<span class="string">f"Hola, {nombre}!"</span>)</code></pre>
                 </div>
             </div>
         </section>
- 
+
         <!-- Operadores Matemáticos -->
-        <section class="section fade-in">
+        <section class="section">
             <div class="section-header">
                 <span class="section-icon">➗</span>
                 <h2>Operadores Matemáticos</h2>
             </div>
- 
+
             <div class="content-grid">
                 <div class="card">
                     <h3>Operadores Básicos</h3>
@@ -386,7 +387,7 @@ nombre = nombre.strip().title()
                         <li><code>**</code> - Exponenciación</li>
                     </ul>
                 </div>
- 
+
                 <div class="card">
                     <h3>Orden de Operaciones</h3>
                     <p>Python sigue el orden matemático estándar (PEMDAS):</p>
@@ -398,7 +399,7 @@ nombre = nombre.strip().title()
                     </ul>
                 </div>
             </div>
- 
+
             <div class="code-container">
                 <div class="code-header">
                     <span class="code-dot red"></span>
@@ -409,7 +410,7 @@ nombre = nombre.strip().title()
                 <pre><code><span class="comment"># Operaciones básicas</span>
 x = <span class="number">10</span>
 y = <span class="number">3</span>
- 
+
 <span class="function">print</span>(x + y)   <span class="comment"># 13</span>
 <span class="function">print</span>(x - y)   <span class="comment"># 7</span>
 <span class="function">print</span>(x * y)   <span class="comment"># 30</span>
@@ -417,11 +418,11 @@ y = <span class="number">3</span>
 <span class="function">print</span>(x // y)  <span class="comment"># 3 (división entera)</span>
 <span class="function">print</span>(x % y)   <span class="comment"># 1 (residuo)</span>
 <span class="function">print</span>(x ** y)  <span class="comment"># 1000 (10 elevado a 3)</span>
- 
+
 <span class="comment"># Orden de operaciones</span>
 resultado = <span class="number">2</span> + <span class="number">3</span> * <span class="number">4</span>  <span class="comment"># 14, no 20</span>
 resultado2 = (<span class="number">2</span> + <span class="number">3</span>) * <span class="number">4</span>  <span class="comment"># 20</span>
- 
+
 <span class="comment"># Operadores de asignación compuestos</span>
 contador = <span class="number">5</span>
 contador += <span class="number">1</span>   <span class="comment"># contador = contador + 1 → 6</span>
@@ -429,19 +430,19 @@ contador *= <span class="number">2</span>   <span class="comment"># contador = c
 contador -= <span class="number">3</span>   <span class="comment"># contador = contador - 3 → 9</span></code></pre>
             </div>
         </section>
- 
+
         <!-- Funciones con Return -->
-        <section class="section fade-in">
+        <section class="section">
             <div class="section-header">
                 <span class="section-icon">↩️</span>
                 <h2>Return Values - Funciones que Devuelven Valores</h2>
             </div>
- 
+
             <div class="concept-box">
                 <h3>¿Qué es return?</h3>
                 <p>Hasta ahora hemos usado funciones que hacen algo (imprimir en pantalla). Pero las funciones también pueden devolver valores que podemos usar en otras partes de nuestro código.</p>
             </div>
- 
+
             <div class="code-container">
                 <div class="code-header">
                     <span class="code-dot red"></span>
@@ -452,25 +453,25 @@ contador -= <span class="number">3</span>   <span class="comment"># contador = c
                 <pre><code><span class="comment"># Función que devuelve un valor</span>
 <span class="keyword">def</span> <span class="function">cuadrado</span>(n):
     <span class="keyword">return</span> n * n
- 
+
 <span class="comment"># Usar el valor retornado</span>
 resultado = <span class="function">cuadrado</span>(<span class="number">5</span>)
 <span class="function">print</span>(resultado)  <span class="comment"># 25</span>
- 
+
 <span class="comment"># Usar directamente en una operación</span>
 <span class="function">print</span>(<span class="function">cuadrado</span>(<span class="number">3</span>) + <span class="function">cuadrado</span>(<span class="number">4</span>))  <span class="comment"># 9 + 16 = 25</span>
- 
+
 <span class="comment"># Función con múltiples returns</span>
 <span class="keyword">def</span> <span class="function">es_par</span>(numero):
     <span class="keyword">if</span> numero % <span class="number">2</span> == <span class="number">0</span>:
         <span class="keyword">return</span> <span class="keyword">True</span>
     <span class="keyword">else</span>:
         <span class="keyword">return</span> <span class="keyword">False</span>
- 
+
 <span class="function">print</span>(<span class="function">es_par</span>(<span class="number">4</span>))  <span class="comment"># True</span>
 <span class="function">print</span>(<span class="function">es_par</span>(<span class="number">7</span>))  <span class="comment"># False</span></code></pre>
             </div>
- 
+
             <div class="example-box">
                 <h3>📝 Ejemplo: Calculadora Simple</h3>
                 <div class="code-container" style="margin-top: 1rem;">
@@ -488,37 +489,37 @@ resultado = <span class="function">cuadrado</span>(<span class="number">5</span>
     <span class="function">print</span>(<span class="string">f"{x} - {y} = {<span class="function">restar</span>(x, y)}"</span>)
     <span class="function">print</span>(<span class="string">f"{x} × {y} = {<span class="function">multiplicar</span>(x, y)}"</span>)
     <span class="function">print</span>(<span class="string">f"{x} ÷ {y} = {<span class="function">dividir</span>(x, y):.2f}"</span>)
- 
+
 <span class="keyword">def</span> <span class="function">sumar</span>(a, b):
     <span class="keyword">return</span> a + b
- 
+
 <span class="keyword">def</span> <span class="function">restar</span>(a, b):
     <span class="keyword">return</span> a - b
- 
+
 <span class="keyword">def</span> <span class="function">multiplicar</span>(a, b):
     <span class="keyword">return</span> a * b
- 
+
 <span class="keyword">def</span> <span class="function">dividir</span>(a, b):
     <span class="keyword">return</span> a / b
- 
+
 <span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:
     <span class="function">main</span>()</code></pre>
                 </div>
             </div>
         </section>
- 
+
         <!-- Scope (Alcance) -->
-        <section class="section fade-in">
+        <section class="section">
             <div class="section-header">
                 <span class="section-icon">🎯</span>
                 <h2>Scope - Alcance de Variables</h2>
             </div>
- 
+
             <div class="concept-box">
                 <h3>Variables Locales vs Globales</h3>
                 <p>El "scope" determina dónde una variable puede ser accedida. Las variables definidas dentro de una función son locales (solo existen en esa función). Las variables fuera de funciones son globales.</p>
             </div>
- 
+
             <div class="code-container">
                 <div class="code-header">
                     <span class="code-dot red"></span>
@@ -528,36 +529,36 @@ resultado = <span class="function">cuadrado</span>(<span class="number">5</span>
                 </div>
                 <pre><code><span class="comment"># Variable global</span>
 nombre = <span class="string">"Python"</span>
- 
+
 <span class="keyword">def</span> <span class="function">saludar</span>():
     <span class="comment"># Variable local</span>
     mensaje = <span class="string">"Hola"</span>
     <span class="function">print</span>(<span class="string">f"{mensaje}, {nombre}!"</span>)  <span class="comment"># Puede acceder a 'nombre'</span>
- 
+
 <span class="function">saludar</span>()  <span class="comment"># Funciona: "Hola, Python!"</span>
 <span class="comment"># print(mensaje)  # Error: mensaje no existe aquí</span>
- 
+
 <span class="comment"># Mejor práctica: pasar variables como parámetros</span>
 <span class="keyword">def</span> <span class="function">saludar_mejor</span>(lenguaje):
     mensaje = <span class="string">"Hola"</span>
     <span class="function">print</span>(<span class="string">f"{mensaje}, {lenguaje}!"</span>)
- 
+
 <span class="function">saludar_mejor</span>(<span class="string">"Python"</span>)</code></pre>
             </div>
- 
+
             <div class="warning-box">
                 <h3>⚠️ Buena Práctica</h3>
                 <p>Es mejor pasar valores como parámetros en lugar de usar variables globales. Esto hace tu código más claro, más fácil de probar y menos propenso a errores.</p>
             </div>
         </section>
- 
+
         <!-- Problem Sets -->
-        <section class="section fade-in">
+        <section class="section">
             <div class="section-header">
                 <span class="section-icon">📝</span>
                 <h2>Problem Sets de la Semana 0</h2>
             </div>
- 
+
             <div class="content-grid">
                 <div class="card">
                     <h3>1. Indoor Voice</h3>
@@ -573,7 +574,7 @@ nombre = <span class="string">"Python"</span>
 <span class="function">print</span>(texto.lower())</code></pre>
                     </div>
                 </div>
- 
+
                 <div class="card">
                     <h3>2. Playback Speed</h3>
                     <p>Reemplaza cada espacio en el texto con "...".</p>
@@ -588,7 +589,7 @@ nombre = <span class="string">"Python"</span>
 <span class="function">print</span>(texto.replace(<span class="string">" "</span>, <span class="string">"..."</span>))</code></pre>
                     </div>
                 </div>
- 
+
                 <div class="card">
                     <h3>3. Making Faces</h3>
                     <p>Convierte emoticonos de texto en emojis.</p>
@@ -602,16 +603,16 @@ nombre = <span class="string">"Python"</span>
                         <pre><code><span class="keyword">def</span> <span class="function">main</span>():
     texto = <span class="function">input</span>()
     <span class="function">print</span>(<span class="function">convert</span>(texto))
- 
+
 <span class="keyword">def</span> <span class="function">convert</span>(texto):
     texto = texto.replace(<span class="string">":)"</span>, <span class="string">"🙂"</span>)
     texto = texto.replace(<span class="string">":("</span>, <span class="string">"🙁"</span>)
     <span class="keyword">return</span> texto
- 
+
 <span class="function">main</span>()</code></pre>
                     </div>
                 </div>
- 
+
                 <div class="card">
                     <h3>4. Einstein</h3>
                     <p>Calcula la energía (E=mc²).</p>
@@ -628,7 +629,7 @@ E = m * c ** <span class="number">2</span>
 <span class="function">print</span>(<span class="string">f"E: {E}"</span>)</code></pre>
                     </div>
                 </div>
- 
+
                 <div class="card">
                     <h3>5. Tip Calculator</h3>
                     <p>Calcula propina y total de una cuenta.</p>
@@ -644,28 +645,28 @@ E = m * c ** <span class="number">2</span>
     percent = <span class="function">percent_to_float</span>(<span class="function">input</span>(<span class="string">"What percentage would you like to tip? "</span>))
     tip = dollars * percent
     <span class="function">print</span>(<span class="string">f"Leave ${tip:.2f}"</span>)
- 
+
 <span class="keyword">def</span> <span class="function">dollars_to_float</span>(d):
     <span class="comment"># Eliminar $ y convertir a float</span>
     <span class="keyword">return</span> <span class="function">float</span>(d.replace(<span class="string">"$"</span>, <span class="string">""</span>))
- 
+
 <span class="keyword">def</span> <span class="function">percent_to_float</span>(p):
     <span class="comment"># Eliminar % y convertir a decimal</span>
     <span class="keyword">return</span> <span class="function">float</span>(p.replace(<span class="string">"%"</span>, <span class="string">""</span>)) / <span class="number">100</span>
- 
+
 <span class="function">main</span>()</code></pre>
                     </div>
                 </div>
             </div>
         </section>
- 
+
         <!-- Notas y Aprendizajes -->
-        <section class="section fade-in">
+        <section class="section">
             <div class="section-header">
                 <span class="section-icon">💡</span>
                 <h2>Mis Notas y Aprendizajes</h2>
             </div>
- 
+
             <div class="card">
                 <h3>Lo que aprendí esta semana:</h3>
                 <ul>
@@ -676,7 +677,7 @@ E = m * c ** <span class="number">2</span>
                     <li>Siempre debo validar la entrada del usuario</li>
                 </ul>
             </div>
- 
+
             <div class="warning-box">
                 <h3>⚠️ Errores Comunes a Evitar</h3>
                 <ul>
@@ -687,16 +688,17 @@ E = m * c ** <span class="number">2</span>
                 </ul>
             </div>
         </section>
- 
+
         <!-- Navigation -->
         <div class="navigation">
             <a href="../index.html" class="nav-button prev">← Inicio</a>
             <a href="week1.html" class="nav-button next">Semana 1: Conditionals →</a>
         </div>
     </main>
- 
+
     <footer>
         <p>🐍 Mi Viaje con Python | Semana 0: Functions, Variables | CS50 2026</p>
     </footer>
+    <script src="../assets/js/main.js"></script>
 </body>
 </html>
